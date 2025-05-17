@@ -1,0 +1,158 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0;
+    background-color: #98C1D9;
+    font-family: Verdana, Helvetica, sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+.header {
+    color: #2A2B2E;
+}
+
+/* divs */
+div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+#loginForm {
+    margin: 2em;
+}
+
+/* input stuff */
+
+form {
+	width: 380px;
+	margin: 4em auto;
+	padding: 3em;
+	background: #E2E4F0;
+    border-radius: 0.5em;
+}
+
+input {
+	font-size: 18px;
+	-webkit-appearance: none;
+	display: block;
+    background: transparent;
+	color: #2A2B2E;
+	width: 100%;
+	border: none;
+	border-radius: 0;
+	border-bottom: 1px solid #2A2B2E;
+    padding: 10px;
+    margin: 0.5em 0;
+}
+
+input:focus {
+    outline: none;
+}
+input::placeholder {
+    color: #999;
+    text-align: center;
+}
+
+#txtPassword {
+    margin-bottom: 1em;
+}
+
+/*
+label {
+    color: #999; 
+	font-size: 18px;
+	font-weight: normal;
+	position: absolute;
+	transition: all 0.2s ease;
+}
+
+input:focus ~ label, input.used ~ label {
+	top: -20px;
+    transform: scale(0.75); left: -2px;
+}
+    */
+
+.error-label {
+	font-size: 1.1em;
+	-webkit-appearance: none;
+	display: block;
+	color: #d50430;
+	border: none;
+	border-radius: 0;
+    text-align: center;
+}
+
+/* button stuff */
+.button {  
+    position: relative;
+    display: inline-block;
+    padding: 12px 24px;
+    margin: 0.3em 0em 1em 0em;
+    width: 100%;
+    vertical-align: middle;
+    color: #E2E4F0;
+    font-size: 1em;
+    line-height: 1.2em;
+    -webkit-font-smoothing: antialiased;
+    text-align: center;
+    letter-spacing: 1px;
+    border: 0;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    border-radius: 0.5em;
+}
+.btn-dark {
+    background: #2A2B2E;
+}
+.btn-dark:hover { background: #1c1d1f; }
+
+#btnLogin {
+    margin-top: 1em;
+}
+
+#chicken {
+    width: 15vw;
+    height: 15vw;
+}
+
+.input-form {
+    margin: 2em;
+}
+
+#divLoginError {
+    display: none;
+}
+
+#btnSend {
+    margin-top: 1em;
+    margin-bottom: 0;
+}
+
+#btnChatLog, #btnChicken, #btnLogout {
+    margin: 0 0.5em 0 0.5em;
+    width: 10em;
+}
+
+textarea {
+    height: 8em;
+    -webkit-appearance: none;
+    display: block;
+    background: transparent;
+    color: #2A2B2E;
+    border: 1px solid #2A2B2E;
+    resize: none;
+    align-self: center;
+    justify-self: center;
+    border-radius: 0.5em;
+    padding: 0.5em;
+    font-size: 1em;
+}
+textarea:focus {
+    outline-color: #2A2B2E;
+}

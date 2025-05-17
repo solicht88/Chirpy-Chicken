@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Your one and only chicken tech friend!"/>
+        <title>ooo chicken</title>
+        <link rel="stylesheet" href="styles.css">
+        <link rel="icon" type="image/png" href="images/logo.png" />
+        <script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-app-compat.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-auth-compat.js"></script>
+        <script src="main.js" type="module" defer></script>
+    </head>
+
+    <body>
+        <div id="login">
+            <div class="header">
+                <h1>ooo chicken tech</h1>
+            </div>
+            <form id="loginForm">
+                <div>
+                    <input id="txtEmail" type="email" placeholder="Email">
+                </div>
+                <div>
+                    <input id="txtPassword" type="password" placeholder="Password">
+                </div>
+                <div id="divLoginError">
+                    <div id="loginErrorMessage" class="error-label">Error message</div>
+                </div>
+                <button id="btnLogin" type="button" class="button btn-dark">Log in</button>
+                <button id="btnSignup" type="button" class="button btn-dark">Sign up</button>
+            </form>
+        </div>
+
+        <div id="app">
+            <div class="header">
+                <h1>ooo chicken tech</h1>
+            </div>
+            <!--load chicken sprite-->
+            <div class="sprite">
+                <img id="chicken" src="./images/chicken.png" alt="chicken sprite" />
+            </div>
+            <div>
+                <!--submit when clicking button or pressing enter key-->
+                <form class="input-form">
+                    <textarea id="user-input" name="user-input" rows="4" cols="40"></textarea>
+                    <button type="submit" id="btnSend" value="send" class="button btn-dark">Send</button>
+                </form>
+            </div>
+            <div class="group">
+                <button id="btnChatLog" type="button" class="button btn-dark">Chat Log</button>
+                <button id="btnChicken" type="button" class="button btn-dark">Hey chicken!</button>
+                <button id="btnLogout" type="button" class="button btn-dark">Log out</button>
+            </div>
+        </div>
+    </body>
+</html>

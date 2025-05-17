@@ -1,0 +1,25 @@
+ai chicken friend that supports you and can help practice social skills
+
+solved problems:
+- loneliness
+- lack of social skills
+
+break into steps:
+- make art + animations
+- talking chicken (ai powered)
+    - ai api
+    - take input
+    - output text on speech bubble
+    - button to generate practice?
+        - resopnd with feedback of their response
+- chat log
+    - write/load json file?
+- log in feature (?)
+- sound (gTTs or chicken sounds)
+- level/rank system? rewards? (optional, w/ time?)
+
+"ooo chicken [tech]" (chicken tech is cool)
+"hey chicken" (similar to "hey furby")
+
+Notes:
+spent 8 hours on firebase (an unreasonable amount of time reading docs, watching videos, using co-pilot, stack overflow, redoing the code twice, failed attempts to emulate, etc.)
