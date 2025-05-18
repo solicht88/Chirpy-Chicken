@@ -23,7 +23,7 @@ exports.getGeminiResponse = async (prompt, apiKey) => {
         const result = await model.generateContent(prompt);
         return result.response.text();
     } catch (error) {
-        console.error("Error calling Gemini API:", error);
+        // console.error("Error calling Gemini API:", error);
         throw new Error("Failed to get Gemini response.");
     }
 };

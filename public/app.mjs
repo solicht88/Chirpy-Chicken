@@ -71,13 +71,13 @@ async function callGenerateText(prompt) {
         if (data && data.result) {
             return data.result;
         } else if (data && data.error) {
-            console.error("Error from Cloud Function:", data.error);
+            // console.error("Error from Cloud Function:", data.error);
             return "The chicken is having trouble.";
         } else {
             return "No response from the chicken.";
         }
     } catch (error) {
-        console.error("Error calling Cloud Function:", error);
+        // console.error("Error calling Cloud Function:", error);
         return "Network error with the chicken.";
     }
 }
@@ -118,7 +118,7 @@ btnLogin.addEventListener('click', (e) => {
         .then((userCredential) => {
             // user signed in successfully
             const user = userCredential.user;
-            console.log('User logged in:', user);
+            // console.log('User logged in:', user);
             // update to show logged-in state
             loginDiv.style.display = 'none';
             appDiv.style.display = 'block';
@@ -133,7 +133,7 @@ btnLogin.addEventListener('click', (e) => {
                 loginErrorMessage.textContent = `Error: ${error.message}`;
             }
             const errorMessage = error.message;
-            console.error('Login error:', errorCode, errorMessage);
+            // console.error('Login error:', errorCode, errorMessage);
             divLoginError.style.display = 'block';
         });
 });
@@ -151,14 +151,14 @@ btnSignup.addEventListener('click', (e) => {
         .then((userCredential) => {
             // user signed up successfully
             const user = userCredential.user;
-            console.log('User signed up:', user);
+            // console.log('User signed up:', user);
             // sign in the user immediately after signup
             return signInWithEmailAndPassword(auth, email, password);
         })
         .then((userCredential) => {
             // user signed in after signup
             const user = userCredential.user;
-            console.log('User logged in after signup:', user);
+            // console.log('User logged in after signup:', user);
             // update to show logged-in state
             loginDiv.style.display = 'none';
             appDiv.style.display = 'block';        })
@@ -172,7 +172,7 @@ btnSignup.addEventListener('click', (e) => {
             else {
                 loginErrorMessage.textContent = `Error: ${error.message}`;
             }
-            console.error('Signup error:', errorCode, errorMessage);
+            // console.error('Signup error:', errorCode, errorMessage);
             divLoginError.style.display = 'block';
         });
 });
@@ -181,12 +181,12 @@ btnSignup.addEventListener('click', (e) => {
 auth.onAuthStateChanged((user) => {
     if (user) {
         // signed in, show app
-        console.log('Auth state changed: User is signed in:', user);
+        // console.log('Auth state changed: User is signed in:', user);
         loginDiv.style.display = 'none';
         appDiv.style.display = 'block';
     } else {
         // signed out, show login
-        console.log('Auth state changed: User is signed out');
+        // console.log('Auth state changed: User is signed out');
         loginDiv.style.display = 'block';
         appDiv.style.display = 'none';
     }
@@ -197,11 +197,11 @@ if (btnLogout) {
     btnLogout.addEventListener('click', () => {
         signOut(auth)
             .then(() => {
-                console.log('User signed out');
+                // console.log('User signed out');
                 // onAuthStateChanged listener updates to login page
             })
             .catch((error) => {
-                console.error('Sign out error:', error);
+                // console.error('Sign out error:', error);
             });
     });
 }
@@ -223,7 +223,7 @@ if (chickenButton) {
           currentScenario = scenario;
           if (userInputTextarea) userInputTextarea.placeholder = "How would you respond?";
       } catch (error) {
-          console.error("Error getting scenario:", error);
+          // console.error("Error getting scenario:", error);
           if (outputArea) outputArea.textContent = 'Oops, the chicken is having a moment.';
       }
   });
@@ -242,7 +242,7 @@ if (chickenButton) {
             currentScenario = scenario;
             if (userInputTextarea) userInputTextarea.placeholder = "How would you respond?";
         } catch (error) {
-            console.error("Error getting scenario:", error);
+            // console.error("Error getting scenario:", error);
             if (outputArea) outputArea.textContent = 'Oops, the chicken is having a moment.';
         }
     });
@@ -273,7 +273,7 @@ if (inputForm) {
                 userInputTextarea.placeholder = "Send a message to the chicken...";
             } catch (error) {
                 // handle error
-                console.error("Error getting feedback:", error);
+                // console.error("Error getting feedback:", error);
                 if (outputArea) outputArea.textContent = 'The chicken seems confused by your response.';
             }
 
@@ -289,7 +289,7 @@ if (inputForm) {
                 // add chicken's response to log
                 addMessageToLog('chicken', `chicken: ${chickenResponse}`);
             } catch (error) { 
-                console.error("Error sending message:", error);
+                // console.error("Error sending message:", error);
                 if (outputArea) outputArea.textContent = 'The chicken didn\'t quite understand that.';
             }
 
