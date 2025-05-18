@@ -15,9 +15,11 @@ const geminiApiKeySecret = defineSecret("GEMINI_API_KEY");
 const { getGeminiResponse } = require('./gemini.js');
 
 exports.generateText = onRequest(
-    { secrets: [geminiApiKeySecret] },
+    { secrets: [geminiApiKeySecret],
+        cors: ['https://ooochicken.web.app/', 'https://chirpychicken.tech/', 'http://127.0.0.1:8080/public/']
+     },
     async (req, res) => {
-        // setting CORS headers (cross origin resource sharing)
+        /* setting CORS headers (cross origin resource sharing)
         res.set('Access-Control-Allow-Origin', 'https://ooochicken.web.app')
 
         // preflight OPTIONS request (check if the request is allowed)
@@ -27,9 +29,10 @@ exports.generateText = onRequest(
         res.set('Access-Control-Max-Age', '3600'); // how long the preflight response can be cached (in seconds)
         return res.status(204).send(''); // Respond with no content (success)
     }
+        */
 
     // handle POST request
-    if (req.method !== 'POST') {
+    if (req.method === 'POST') {
         try {
             const prompt = req.body.prompt;
             
