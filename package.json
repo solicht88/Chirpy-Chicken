@@ -1,7 +1,7 @@
 {
   "name": "jamhacks_9",
   "version": "1.0.0",
-  "description": "ooochicken is an AI chicken friend that supports you and helps to practice social skills!   Solo project for Jamhacks9.",
+  "description": "Chirpy Chicken is an AI chicken friend that supports you and helps to practice social skills!   Solo project for Jamhacks9.",
   "main": "server.js",
   "type": "module",
   "scripts": {

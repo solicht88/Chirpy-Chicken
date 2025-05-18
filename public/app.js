@@ -1,5 +1,5 @@
 // Firebase SDKs
-import { initializeApp } from "firebase/app";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app-compat.js";
 import { 
     getAuth, 
     signInWithEmailAndPassword,
@@ -7,14 +7,14 @@ import {
     onAuthStateChanged,
     signOut,
     AuthErrorCodes
-} from "firebase/auth";
+} from "https://www.gstatic.com/firebasejs/10.10.0/firebase-auth-compat.js";
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 
 import firebaseConfig from './firebaseConfig.js';
 
-import { getGeminiResponse } from './gemini.js';
+import { getGeminiResponse } from '../';
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
@@ -53,6 +53,34 @@ const chatLogMessagesDiv = document.getElementById('chatLogMessages');
 
 // store messages
 const messageLog = [];
+
+// cloud function URL
+const GENERATE_TEXT_URL = "https://generatetext-4ynsnxomfq-uc.a.run.app";
+
+// helper function to call cloud function
+async function callGenerateText(prompt) {
+    try {
+        const response = await fetch(GENERATE_TEXT_URL, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ prompt: prompt }),
+        });
+        const data = await response.json();
+        if (data && data.result) {
+            return data.result;
+        } else if (data && data.error) {
+            console.error("Error from Cloud Function:", data.error);
+            return "The chicken is having trouble.";
+        } else {
+            return "No response from the chicken.";
+        }
+    } catch (error) {
+        console.error("Error calling Cloud Function:", error);
+        return "Network error with the chicken.";
+    }
+}
 
 // add a message to log
 function addMessageToLog(sender, text) {
@@ -201,6 +229,24 @@ if (chickenButton) {
   });
 }
 
+// hey chicken! button (use callGenerateText)
+if (chickenButton) {
+    chickenButton.addEventListener('click', async () => {
+        if (outputArea) outputArea.textContent = 'Thinking...';
+        try {
+            const scenario = await callGenerateText("Generate a very short, random social scenario where someone initiates a conversation or interaction and the reader must respond in some way.");
+            if (outputArea) {
+                outputArea.textContent = scenario;
+                addMessageToLog('chicken', `chicken: ${scenario}`);
+            }
+            currentScenario = scenario;
+            if (userInputTextarea) userInputTextarea.placeholder = "How would you respond?";
+        } catch (error) {
+            console.error("Error getting scenario:", error);
+            if (outputArea) outputArea.textContent = 'Oops, the chicken is having a moment.';
+        }
+    });
+}
 // check user input and send to chicken
 const inputForm = document.querySelector('#inputForm');
 if (inputForm) {
@@ -220,7 +266,7 @@ if (inputForm) {
             try {
                 // get feedback from chicken
                 const feedbackPrompt = `The following is a social scenario: ${currentScenario}. The user responded with: ${userResponse}. Provide brief feedback on the user's response in terms of social appropriateness and effectiveness.`;
-                const feedback = await getGeminiResponse(feedbackPrompt);
+                const feedback = await callGenerateText(feedbackPrompt);
                 // display feedback
                 if (outputArea) outputArea.innerHTML += `${feedback}`;
                 currentScenario = null;
@@ -238,7 +284,7 @@ if (inputForm) {
             addMessageToLog('user', `user: ${userResponse}`);
             try {
                 // get chicken's response
-                const chickenResponse = await getGeminiResponse(userResponse);
+                const chickenResponse = await callGenerateText(userResponse);
                 outputArea.innerHTML = `${chickenResponse}`;
                 // add chicken's response to log
                 addMessageToLog('chicken', `chicken: ${chickenResponse}`);
