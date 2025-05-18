@@ -6,7 +6,7 @@ body {
     justify-content: center;
     flex-direction: column;
     margin: 0;
-    background-color: #98C1D9;
+    background-color: #f6dca7;
     font-family: Verdana, Helvetica, sans-serif;
     -webkit-font-smoothing: antialiased;
 }
@@ -24,6 +24,13 @@ div {
     flex-direction: row;
 }
 
+#login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 #loginForm {
     margin: 2em;
 }
@@ -33,7 +40,7 @@ form {
 	width: 380px;
 	margin: 4em auto;
 	padding: 3em;
-	background: #E2E4F0;
+	background: #eeeff6;
     border-radius: 0.5em;
 }
 
@@ -100,7 +107,7 @@ input:focus ~ label, input.used ~ label {
     margin: 0.3em 0em 1em 0em;
     width: 100%;
     vertical-align: middle;
-    color: #E2E4F0;
+    color: #eeeff6;
     font-size: 1em;
     line-height: 1.2em;
     -webkit-font-smoothing: antialiased;
@@ -138,9 +145,9 @@ textarea {
     height: 8em;
     -webkit-appearance: none;
     display: block;
-    background: #E2E4F0;
+    background: #eeeff6;
     color: #2A2B2E;
-    border: 1px solid #2A2B2E;
+    border: 0.15em solid #2A2B2E;
     resize: none;
     align-self: center;
     justify-self: center;
@@ -155,6 +162,7 @@ textarea:focus {
 #chicken {
     width: 15vw;
     height: 15vw;
+    margin-right: 1em;
 }
 
 .chat-log-popup {
@@ -166,8 +174,8 @@ textarea:focus {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #f9f9f9;
-    border: 1px solid #ccc;
+    background-color: #eeeff6;
+    border: 0.3em solid #d0d0d0;
     padding: 20px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     z-index: 1000;
@@ -183,7 +191,7 @@ textarea:focus {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #d0d0d0;
     padding-bottom: 5px;
 }
 
@@ -208,4 +216,12 @@ textarea:focus {
 #closeChatLog {
     width: 10em;
     margin-top: 1em;
+}
+
+#application {
+    display: none;
+}
+
+#speechOutput {
+    margin-left: 1em;
 }

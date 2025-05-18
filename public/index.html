@@ -7,7 +7,7 @@
         <title>chirpy chicken</title>
         <link rel="stylesheet" href="./styles.css">
         <link rel="icon" type="image/png" href="./images/img.ico" />
-        <script type="module" src="app.js"></script>
+        <script type="module" src="app.mjs"></script>
     </head>
 
     <body>
@@ -25,7 +25,7 @@
                 <div id="divLoginError">
                     <div id="loginErrorMessage" class="error-label">Error message</div>
                 </div>
-                <button id="btnLogin" type="button" class="button btn-dark">Log in</button>
+                <button id="btnLogin" type="button" class="button btn-dark" onclick="">Log in</button>
                 <button id="btnSignup" type="button" class="button btn-dark">Sign up</button>
             </form>
         </div>
@@ -38,7 +38,7 @@
             <div class="sprite">
                 <img id="chicken" src="./images/chicken.png" alt="chicken sprite" />
                 <!--disabled text area for chicken text-->
-                <textarea id="speechOutput" name="speechOutput" rows="5" cols="40" disabled></textarea>
+                <textarea id="speechOutput" name="speechOutput" rows="5" cols="30" disabled></textarea>
             </div>
             <div>
                 <!--submit when clicking button or pressing enter key-->

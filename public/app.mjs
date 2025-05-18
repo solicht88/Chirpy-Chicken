@@ -1,5 +1,5 @@
 // Firebase SDKs
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app-compat.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
 import { 
     getAuth, 
     signInWithEmailAndPassword,
@@ -7,12 +7,12 @@ import {
     onAuthStateChanged,
     signOut,
     AuthErrorCodes
-} from "https://www.gstatic.com/firebasejs/10.10.0/firebase-auth-compat.js";
+} from "https://www.gstatic.com/firebasejs/10.10.0/firebase-auth.js";
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 
-import firebaseConfig from './firebaseConfig.js';
+import firebaseConfig from './firebaseConfig.mjs';
 
 //import { getGeminiResponse } from '../';
 
@@ -268,7 +268,7 @@ if (inputForm) {
                 const feedbackPrompt = `The following is a social scenario: ${currentScenario}. The user responded with: ${userResponse}. Provide brief feedback on the user's response in terms of social appropriateness and effectiveness.`;
                 const feedback = await callGenerateText(feedbackPrompt);
                 // display feedback
-                if (outputArea) outputArea.innerHTML += `${feedback}`;
+                if (outputArea) outputArea.innerHTML = `${feedback}`;
                 currentScenario = null;
                 userInputTextarea.placeholder = "Send a message to the chicken...";
             } catch (error) {
