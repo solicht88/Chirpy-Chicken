@@ -4,18 +4,18 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="Your one and only chicken tech friend!"/>
-        <title>ooo chicken</title>
+        <title>chirpy chicken</title>
         <link rel="stylesheet" href="styles.css">
-        <link rel="icon" type="image/png" href="images/logo.png" />
+        <link rel="icon" type="image/png" href="./images/img.ico" />
         <script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-app-compat.js"></script>
         <script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-auth-compat.js"></script>
-        <script src="main.js" type="module" defer></script>
+        <script src="app.js" type="module" defer></script>
     </head>
 
     <body>
         <div id="login">
             <div class="header">
-                <h1>ooo chicken tech</h1>
+                <h1>chirpy chicken</h1>
             </div>
             <form id="loginForm">
                 <div>
@@ -34,16 +34,18 @@
 
         <div id="app">
             <div class="header">
-                <h1>ooo chicken tech</h1>
+                <h1>chirpy chicken</h1>
             </div>
             <!--load chicken sprite-->
             <div class="sprite">
                 <img id="chicken" src="./images/chicken.png" alt="chicken sprite" />
+                <!--disabled text area for chicken text-->
+                <textaera id="speechOutput" name="speechOutput" rows="5" cols="40" disabled></textaera>
             </div>
             <div>
                 <!--submit when clicking button or pressing enter key-->
-                <form class="input-form">
-                    <textarea id="user-input" name="user-input" rows="4" cols="40"></textarea>
+                <form id="inputForm">
+                    <textarea id="userInput" name="userInput" rows="4" cols="40" placeholder="Send a message to the chicken..."></textarea>
                     <button type="submit" id="btnSend" value="send" class="button btn-dark">Send</button>
                 </form>
             </div>
@@ -52,6 +54,19 @@
                 <button id="btnChicken" type="button" class="button btn-dark">Hey chicken!</button>
                 <button id="btnLogout" type="button" class="button btn-dark">Log out</button>
             </div>
+        </div>
+
+        <div id="chatLogPopup" class="chat-log-popup">
+            <div class="chat-log-header">
+                <h2>Chat Log</h2>
+            </div>
+            <div id="chatLogMessages" class="chat-log-messages">
+                <!-- Example messages
+                <p class="user-message">hello</p>
+                <p>placeholder</p>
+                -->
+            </div>
+            <button id="closeChatLog" class="button btn-dark">Close</button>
         </div>
     </body>
 </html>

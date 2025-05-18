@@ -11,6 +11,7 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
+/* titles */
 .header {
     color: #2A2B2E;
 }
@@ -28,7 +29,6 @@ div {
 }
 
 /* input stuff */
-
 form {
 	width: 380px;
 	margin: 4em auto;
@@ -61,6 +61,10 @@ input::placeholder {
 
 #txtPassword {
     margin-bottom: 1em;
+}
+
+#inputForm {
+    margin: 2em;
 }
 
 /*
@@ -116,15 +120,6 @@ input:focus ~ label, input.used ~ label {
     margin-top: 1em;
 }
 
-#chicken {
-    width: 15vw;
-    height: 15vw;
-}
-
-.input-form {
-    margin: 2em;
-}
-
 #divLoginError {
     display: none;
 }
@@ -155,4 +150,62 @@ textarea {
 }
 textarea:focus {
     outline-color: #2A2B2E;
+}
+
+#chicken {
+    width: 15vw;
+    height: 15vw;
+}
+
+.chat-log-popup {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    display: none; /* Initially hidden */
+    width: 80%;
+    max-height: 70vh;
+    overflow-y: auto;
+    border-radius: 8px;
+}
+
+.chat-log-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+}
+
+.chat-log-messages {
+    display: flex;
+    flex-direction: column-reverse; /* To show newest at the top */
+}
+
+.chat-log-messages p {
+    background-color: #e0f7fa;
+    color: #212121;
+    padding: 8px 12px;
+    border-radius: 6px;
+    word-break: break-word;
+    margin-bottom: 0.5em;
+}
+
+.chat-log-messages p.user-message {
+    background-color: #ffefd0;
+}
+
+#closeChatLog {
+    width: 10em;
+    margin-top: 1em;
 }
