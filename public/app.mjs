@@ -237,7 +237,7 @@ if (chickenButton) {
             const scenario = await callGenerateText("Generate a very short, random social scenario where someone initiates a conversation or interaction and the reader must respond in some way.");
             if (outputArea) {
                 outputArea.textContent = scenario;
-                addMessageToLog('chicken', `chicken: ${scenario}`);
+                addMessageToLog('chicken', `Chicken: ${scenario}`);
             }
             currentScenario = scenario;
             if (userInputTextarea) userInputTextarea.placeholder = "How would you respond?";
@@ -262,7 +262,7 @@ if (inputForm) {
             // review the given social scenario and give feedback
             if (outputArea) outputArea.textContent = 'Getting feedback...';
             // add user's response to log
-            addMessageToLog('user', `user: ${userResponse}`);
+            addMessageToLog('user', `User: ${userResponse}`);
             try {
                 // get feedback from chicken
                 const feedbackPrompt = `The following is a social scenario: ${currentScenario}. The user responded with: ${userResponse}. Provide brief feedback on the user's response in terms of social appropriateness and effectiveness.`;
@@ -281,13 +281,13 @@ if (inputForm) {
             // send user's message to chicken
             if (outputArea) outputArea.textContent = 'Sending message...';
             // add user's message to log
-            addMessageToLog('user', `user: ${userResponse}`);
+            addMessageToLog('user', `User: ${userResponse}`);
             try {
                 // get chicken's response
                 const chickenResponse = await callGenerateText(userResponse);
                 outputArea.innerHTML = `${chickenResponse}`;
                 // add chicken's response to log
-                addMessageToLog('chicken', `chicken: ${chickenResponse}`);
+                addMessageToLog('chicken', `Chicken: ${chickenResponse}`);
             } catch (error) { 
                 // console.error("Error sending message:", error);
                 if (outputArea) outputArea.textContent = 'The chicken didn\'t quite understand that.';

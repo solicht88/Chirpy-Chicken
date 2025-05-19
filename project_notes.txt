@@ -26,3 +26,4 @@ break into steps:
 Notes:
 spent 8 hours on firebase (an unreasonable amount of time reading docs, watching videos, using co-pilot, stack overflow, redoing the code twice, failed attempts to emulate, etc.)
 notable error: Expected a JavaScript module script but the server responded with a MIME type of “text/html”
+kept accidentally using old or outdated scripts
